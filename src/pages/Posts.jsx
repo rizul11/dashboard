@@ -6,8 +6,6 @@ import "./Posts.css";
 import { fetchPostDetails } from "../features/postDetailsActions";
 import { useUsers, getUserNames } from "../Context/UserContext";
 
-
-
 function Posts() {
   const dispatch = useDispatch();
   const users = useUsers();
@@ -153,5 +151,3 @@ function Posts() {
 }
 
 export default Posts;
-
-

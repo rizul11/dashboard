@@ -1,5 +1,5 @@
 import React from "react";
-import { BsFillHouseAddFill, BsChatLeftDotsFill, BsFillArchiveFill } from "react-icons/bs";
+import { BsFillHouseAddFill, BsChatLeftDotsFill, BsPersonVcardFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 function Sidebar({ openSidebarToggle, OpenSidebar }) {
@@ -25,7 +25,7 @@ function Sidebar({ openSidebarToggle, OpenSidebar }) {
         </li>
         <li className="sidebar-list-item">
           <Link to="/users">
-            <BsFillArchiveFill className="icon" /> Users
+            <BsPersonVcardFill className="icon" /> Users
           </Link>
         </li>
       </ul>
