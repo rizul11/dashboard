@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   title: "",
   body: "",
-  userId: null,
+  userId: "",
 };
 
 const postDetailsSlice = createSlice({
