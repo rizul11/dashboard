@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getAllData } from "../features/postsSlice";
+
 import { Link } from "react-router-dom";
 import "./Posts.css";
 import { fetchPostDetails } from "../features/postDetailsActions";
@@ -39,16 +39,6 @@ function Posts() {
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-  };
-
-  const fetchAndCacheData = () => {
-    dispatch(getAllData()).then((response) => {
-      if (!response.error) {
-        // Cache the fetched data in local storage
-        localStorage.setItem("cachedData", JSON.stringify(response.payload));
-        setCachedData(response.payload);
-      }
-    });
   };
 
   // FILTER BY ID AND TITLE
