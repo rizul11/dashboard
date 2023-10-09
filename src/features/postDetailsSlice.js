@@ -11,7 +11,7 @@ const postDetailsSlice = createSlice({
   initialState,
   reducers: {
     setPostDetails(state, action) {
-      console.log("Reducer: setPostDetails called with payload:", action.payload);
+      // console.log("Reducer: setPostDetails called with payload:", action.payload);
       const { title, body, userId } = action.payload;
       state.title = title;
       state.body = body;
@@ -23,8 +23,5 @@ const postDetailsSlice = createSlice({
 export const { setPostDetails } = postDetailsSlice.actions;
 
 export default postDetailsSlice.reducer;
-
-
-
 
 

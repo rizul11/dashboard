@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import "./Posts.css";
 import { fetchPostDetails } from "../features/postDetailsActions";
 import { useUsers, getUserNames } from "../Context/UserContext";
+import { setFirstParam } from "../features/GeneralSlice";
 
 function Posts() {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ function Posts() {
 
   const handleReadMoreClick = (postId) => {
     dispatch(fetchPostDetails(postId));
+    dispatch(setFirstParam(postId))
   };
 
   const data = useSelector((state) => state.app);
@@ -118,7 +120,7 @@ function Posts() {
 
                   {user && <p className="card-user">User: {user.name}</p>}
                   <Link
-                    to={`/post-detail/${ele.id}`}
+                    to={`/post-detail`}
                     className="card-link btn btn-primary"
                     onClick={() => handleReadMoreClick(ele.id)}
                   >
