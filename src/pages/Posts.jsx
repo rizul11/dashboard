@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-
+import { getAllData } from "../features/postsSlice";
 import { Link } from "react-router-dom";
 import "./Posts.css";
 import { fetchPostDetails } from "../features/postDetailsActions";
@@ -41,10 +41,23 @@ function Posts() {
     setCurrentPage(pageNumber);
   };
 
+  const fetchData = () => {
+    dispatch(getAllData()).then((response) => {
+      if (!response.error) {
+        // Cache the fetched data in local storage
+        localStorage.setItem("cachedData", JSON.stringify(response.payload));
+        setCachedData(response.payload);
+      }
+    });
+  };
+
   // FILTER BY ID AND TITLE
 
   const applyFilters = () => {
     const filteredData = cachedData.filter((item) => {
+      if(filterCriteria.userId === "all"){
+        return cachedData.filter((item)=>item)
+      }
       if (
         filterCriteria.userId !== null &&
         item.userId !== parseInt(filterCriteria.userId)
@@ -69,6 +82,7 @@ function Posts() {
 
   return (
     <div className="posts-container">
+      <button onClick={fetchData}>Fetch data</button>
       <div className="filters mb-3">
         <input
           type="text"
@@ -86,7 +100,7 @@ function Posts() {
           }
           className="form-select"
         >
-          <option value={""}>All Users</option>
+          <option value={"all"}>All Users</option>
           {userNames.map((userName, index) => (
             <option key={index} value={index + 1}>
               {userName}

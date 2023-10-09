@@ -5,6 +5,7 @@ export const getAllData = createAsyncThunk("posts" ,async(args, {rejectWithValue
 
  try {
     const result = response.json();
+    console.log("result",result)
  return result; 
  } catch (error) {
     return rejectWithValue("Opps found an error")
