@@ -82,7 +82,7 @@ function Posts() {
 
   return (
     <div className="posts-container">
-      <button onClick={fetchData}>Fetch data</button>
+      <button className="btn btn-primary" onClick={fetchData}>Fetch data</button>
       <div className="filters mb-3">
         <input
           type="text"
