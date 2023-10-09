@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { getAllData } from "../features/postsSlice";
 import { Link } from "react-router-dom";
 import "./Posts.css";
@@ -14,7 +14,7 @@ function Posts() {
 
   const handleReadMoreClick = (postId) => {
     dispatch(fetchPostDetails(postId));
-    dispatch(setFirstParam(postId))
+    dispatch(setFirstParam(postId));
   };
 
   const itemsPerPage = 20;
