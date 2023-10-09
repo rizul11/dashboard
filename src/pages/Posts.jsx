@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { getAllData } from "../features/postsSlice";
 import { Link } from "react-router-dom";
 import "./Posts.css";
@@ -17,7 +17,6 @@ function Posts() {
     dispatch(setFirstParam(postId))
   };
 
-  const data = useSelector((state) => state.app);
   const itemsPerPage = 20;
   const [currentPage, setCurrentPage] = useState(1);
   const [cachedData, setCachedData] = useState([]);
